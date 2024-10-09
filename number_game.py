@@ -27,7 +27,7 @@ operations = {
     '*': multiply,
     '/': divide
 }
-
+print('Welcome to a number game! Let\'s put your math skills to the test!')
 op = input('What do you want to do? Choose one operation +,-,*,/: ')
 operators = ['+', '-', '*', '/']
 while op not in operators:
@@ -47,7 +47,7 @@ if op in operations:
             score += 1
         else: 
             print(f'Incorrect, the answer was {result}')
-            
+
     except ValueError:
         print('That was not a number, try again!')
 
