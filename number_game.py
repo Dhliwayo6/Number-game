@@ -30,7 +30,10 @@ operations = {
 
 print('Welcome to a number game! Let\'s put your math skills to the test!')
 print(' ')
-op = input('What do you want to do? Choose one operation +,-,*,/: ')
+
+player_name = input('What is your name? ').upper()
+
+op = input(f'What do you want to do {player_name}? Choose one operation +,-,*,/: ')
 operators = ['+', '-', '*', '/']
 while op not in operators:
     print('Invalid option, please choose from one of the options +,-,*,/ ')
@@ -40,6 +43,8 @@ if op in operations:
     for _ in range(5):
         num1, num2 = numbers()
         result = operations[op](num1, num2)
+        x = round(result, 3)
+        result = x
         reply = input(f'Calculate {num1} {op} {num2} = ')
 
         try:
@@ -51,8 +56,11 @@ if op in operations:
                 print(f'Incorrect, the answer was {result}')
         except ValueError:
             print('That was not a number, try again')
+    if score > 3:
+        print(f'{player_name} you got {score} questions correct, you did great!')
+    else:
+        print(f'{player_name} you got {score} questions correct, you can do better!')
 
-    print(f'Your got {score} questions correct')
     print(f'You got {((score/5) * 100)} %')
 
 
